@@ -13,3 +13,4 @@ npx shadcn@latest add button
 ```
 
 You can see your newly installed shadCN components in your "components" folder.
+<br> Use shadCN components, as your regular react/next.js components.
