@@ -6,7 +6,7 @@ npx shadcn@latest init
 
 Go through the dialogue box and setup according to your requirement.
 
-<br><br> Install the necessary component according to your requirement as;
+Install the necessary component according to your requirement as;
 
 ```
 npx shadcn@latest add button

@@ -9,4 +9,9 @@ Go through the dialogue box and setup according to your requirement.
 <br> "Turbopack" is used to speed up your project.
 <br> "ESLint" is used to manage your large codebase
 
-<br><br> Get started writing your code in your "page.tsx" file inside your "app" folder.
+Get started writing your code in your "page.tsx" file inside your "app" folder.
+<br> Run your application using the following command;
+
+```
+npm run dev
+```
