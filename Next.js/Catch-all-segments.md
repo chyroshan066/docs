@@ -1,5 +1,5 @@
 If you want to handle dynamic, variable-depth routes, use catch-all-segments. It allows you to access them as an array.
-<br> For that you have to create a folder route after which you want to handle in-depth routes. Inside that folder create another folder just like you handled in dynamic routing but three dots before the name (Eg: [...slug]). And inside that folder create "page.tsx/page.jsx" file and write your code. You can use conditional statement to handle it since it slug is an array of string in this case.
+<br> For that you have to create a folder route after which you want to handle in-depth routes. Inside that folder create another folder just like you handled in dynamic routing but three dots before the name (Eg: [...slug]). And inside that folder create "page.tsx/page.jsx" file and write your code. You can use conditional statement to handle it since, slug is an array of string in this case.
 <br> A demo example is shown below;
 
 ```
