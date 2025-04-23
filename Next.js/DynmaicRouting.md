@@ -18,4 +18,4 @@ export default async function ProductDetails({
 URL params in Next.js (App Router) are always passed as strings.
 <br> Nested dynamic routing can be implemented in the same way as nested routing and the folder structure is shown below;
 
-![dynamic-routing](../images/nested-dynamic-routing.png)
+![nested-dynamic-routing](../images/nested-dynamic-routing.png)
