@@ -18,7 +18,7 @@ not-found function doesn't accepts any props. So, we have to use "usePathname" h
 import { usePathname } from "next/navigation"
 ```
 
-Create variable inside the function and acess the required fields from the path as an array and use it to render.
+Create variable inside the function and access the required fields from the path as an array and use it to render.
 
 ```
 const pathname = usePathname();
