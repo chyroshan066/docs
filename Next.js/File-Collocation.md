@@ -1,4 +1,4 @@
-In next.js only, the "page.tsx/page.jsx" file inside the route folder is rendered even though you can create other files inside that folder. They won't be rendered.
+In next.js only, the "page.tsx/page.jsx" file inside the route folder is only rendered even though you can create other files inside that folder. They won't be rendered.
 
 The other way of creating a separate folder is using underscore before the folder name (Eg: \_lib). The contents/files inside it won't be rendered.
 
