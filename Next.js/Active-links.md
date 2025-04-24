@@ -22,7 +22,7 @@ Now, declare a new variable (say "isActive" ) which is boolean using the followi
 const isActive = pathname === link.href || ( pathname.startsWith(link.href) && link.href !== "/" );
 ```
 
-Now, you can change the class of the variable based on the value of the "isActive" varibale in your "Link" tag as;
+Now, you can change the class of the tag based on the value of the "isActive" varibale in your "Link" tag as;
 
 ```
 <Link
