@@ -51,15 +51,23 @@ Unike "params", "searchParams" is not necessarily to be strictly bound to any da
 import { use } from "react";
 ```
 
-And now instead of using "await" to wait for the data to be resolved, we can use "use".
+And now instead of using "await" to wait for the data to be resolved, we can use "use" hook.
 <br> In client component, this
 
 ```
-const articleId = await params;
+const { articleId } = await params;
 ```
 
 is replaced by
 
 ```
-const articleId = use(params);
+const { articleId } = use(params);
 ```
+
+No need to make function "async".
+
+```
+export default function ArticleDetails(){}
+```
+
+is fine.
