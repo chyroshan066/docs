@@ -1,0 +1,1 @@
+If you want to remount the shared components each time the user navigates, then you can use "template.tsx/template.jsx" file. It is similar to "layout.tsx/layout.jsx" file but the only difference is that it resets its state every time the user navigates. Templates are ideal to be used where you want to reset forms, trigger animations, or re-fetch data on each page load.
