@@ -1,7 +1,7 @@
 For handling fallback errors, so that it doesn't affect the whole app, we use "error.jsx/error.tsx" file. Inside that file, whatever we render will be displayed when error occurs. This doesn't affect other routes from running. We create "error.tsx/error.jsx" file in those routes folder where we expect error to occur and this file must be adjacent to the "page.tsx/page.jsx" file.
 <br>The folder structure looks like;
 
-![error-hanlding](../images/error-hanlding.png)
+![error-handling](../images/error-handling.png)
 
 Since, "error.tsx/error.jsx" must be a client component. We should include "use client" directive at the top as;
 
@@ -60,7 +60,11 @@ This allow react to handle any pending state updates before proceeding, thus fix
 
 "error.tsx/error.jsx" handles error in all of its nested routes.
 
-"error.tsx/error.jsx" can't handle for the error of "layout.tsx/layout.jsx" in the same segment. This is because in component hierarchy, "Layouts" lie above "Error Boundary".
+"error.tsx/error.jsx" can't handle for the error of "layout.tsx/layout.jsx" in the same segment. This is because in component hierarchy, "Layouts" lie above "Error Boundary". So, "error.tsx/error.jsx" must be placed in the parent route folder of "layout.tsx/layout.jsx"
 
 So, this means there can't be any "error.tsx/error.jsx" file to handle the errors for the root layout. This is where "global-error.tsx/global-error.jsx" comes into play. This component not only handles the error of the root layout but also the error of the nested components/routes. "global-error.tsx/global-error.jsx" works only in production mode and requires html and body tags to be rendered.
-<br> **Note:** You can't throw an error in the root layout. If you want to throw an error than that should be done in any other components and be imported in root layout.
+<br> The folder structure for "global-error.tsx/global-error.jsx" looks like
+
+![global-error](../images/global-error.png)
+
+**Note:** You can't throw an error in the root layout. If you want to throw an error than that should be done in any other components and be imported in root layout.
