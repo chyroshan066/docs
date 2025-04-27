@@ -1,0 +1,1 @@
+To, setup redux toolkit in next.js, we first create a folder inside our app directory (let's name it "reduxToolkit"), then we create 3 files, "provider.tsx/provider.jsx", "store.ts/store.js" and "slice.ts/slice.js".
