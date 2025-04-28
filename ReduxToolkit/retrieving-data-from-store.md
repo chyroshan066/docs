@@ -11,7 +11,7 @@ Since, we are using react hook, the component must be client component and the w
 "use client";
 ```
 
-We assign a variable to the "useSelector" hook by calling it which accepts function that returns the initial state or the nested key-value pair of inside that state.
+We assign a variable to the "useSelector" hook by calling it which accepts function that returns the initial state or the nested key-value pair inside that state.
 
 ```
 const employeeData = useSelector((data) => data.employee.employees);
