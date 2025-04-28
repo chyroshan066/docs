@@ -23,7 +23,7 @@ const initialState: MyState = {
 };
 ```
 
-After that we create "Slice" variable by calling "createSlice" method, which takes objects. The necessary element to be defined inside "createSlice" includes "name", "initial state" and "reducers". "reducers" itself is an object which has action-name as keys and each value is a reducer function. Each reducer function has two props, "state" and "action". While using typeScript, it is not necessary to define the data type of "state" but we need to define the data type of "action". The data type of "action is "PayloadAction<T>" where T is generic. We can only pass the necessary data types of the values we use (no need to pass the whole data type of the element in initial state)
+After that we create "Slice" variable by calling "createSlice" method, which takes objects. The necessary element to be defined inside "createSlice" includes "name", "initial state" and "reducers". "reducers" itself is an object which has action-name as keys and each value is a reducer function. Each reducer function has two props, "state" and "action". While using typeScript, it is not necessary to define the data type of "state" but we need to define the data type of "action". The data type of "action is "PayloadAction\<T\>" where T is generic. We can only pass the necessary data types of the values we use (no need to pass the whole data type of the element in initial state)
 <br> The demo example is shown below;
 
 ```
