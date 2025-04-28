@@ -11,10 +11,12 @@ Since, we are using react hook, the component must be client component and the w
 "use client";
 ```
 
-We assign a variable to the "useSelector" hook by calling it which accepts function that returns the initial state or the nested key-value pair inside that state.
+We assign a variable to the "useSelector" hook by calling it which accepts function that returns the initial state or the nested key-value pair inside that state. The data type the "reducer" exported from store is "RootState". But before that we need to import "RootState" from "store.ts/store.js" file.
 
 ```
-const employeeData = useSelector((data) => data.employee.employees);
+import { RootState } from "@/reduxToolkit/store";
+
+const employeeData = useSelector((data: RootState) => data.employee.employees);
 ```
 
 Here, the props (i.e; "data") directly points to the "reducer" key inside our "store.ts/store.js" file and the nested key inside the "reducer" points to the initial state of the respective "slice.ts/slice.js" file.
@@ -25,14 +27,16 @@ Here, the props (i.e; "data") directly points to the "reducer" key inside our "s
 "use client";
 
 import { useSelector } from "react-redux";
+import { RootState } from "@/reduxToolkit/store";
+import { MyData } from "@/types/employeeTypes";
 
 export const ShowEmployees = () => {
-  const employeeData = useSelector((data) => data.employee.employees);
+  const employeeData = useSelector((data: RootState) => data.employee.employees);
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Show Employees</h2>
-      {employeeData.map((item) => (
+      {employeeData.map((item: MyState) => (
         <h4 key={item.id}>{item.name}</h4>
       ))}
     </div>
