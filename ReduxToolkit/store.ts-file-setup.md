@@ -12,11 +12,13 @@ export const store = configureStore({
 });
 ```
 
-But if the "reducer" is exported with the different name from "slice.ts/slice.js", then we must define reducer as key-value pair. Just like
+But if the "reducer" is exported with the different name from "slice.ts/slice.js", then we must define reducer as an object with key-value pair. Just like
 
 ```
 export const store = configureStore({
-  reducer: "myReducer"
+  reducer: {
+    employee: employeeReducer,
+  }
 });
 ```
 
@@ -26,6 +28,8 @@ The minimal setup for "store.ts/store.js" file is written below.
 import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
-  reducer: "myReducer"
+  reducer: {
+    employee: employeeReducer,
+  }
 });
 ```

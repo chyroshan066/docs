@@ -11,13 +11,13 @@ Then we need to import the action-name/thunk-function, that we require which was
 import { addEmployee } from "@/app/reduxToolkit/slice";
 ```
 
-Since, all the react hooks that performs navigation or dispatch operation does not take any argument, we first need to call "useDispatch" hook without any arguments and assign it to "dispatch" which works as method and accepts, "action" or "thunk function" to be called.
+Since, all the react hooks that performs navigation or dispatch operation does not take any argument, we first need to call "useDispatch" hook without any arguments and assign it to "dispatch" which works as method and accepts, "action" or "thunk function" to be called. The arguments to be passed inside action/thunkt function should be in the same manner as defined in "PayloadAction" in "slice.ts/slice.js" file.
 <br> The following code justifies it
 
 ```
 const dispatch = useDispatch();
 const dataDispatch = () => {
-    dispatch(addEmployee(empName));
+    dispatch(addEmployee({ name: empName }));
 };
 ```
 
