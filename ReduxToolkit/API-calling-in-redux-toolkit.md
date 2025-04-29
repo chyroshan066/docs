@@ -44,7 +44,7 @@ extraReducers: (builder) => {
   },
 ```
 
-In the above code, "apiData" is the variable which was assigned by calling "createAsyncThunk" and not the name inside "createAsyncThunk". We perform operatio in each of the cases according to our requirement. Of course, during "pending", we change the value of "isLoading" to true. The first case to happen is "pending" case, after which "rejected" or "fulfilled" any case may occur based on the API response, so we must change the value of "isLoading" to false in both of the cases. We can assign "action.error" to our error value if it is rejected. And in fulfilled case, we assign the "action.payload" value to our state varaible.
+In the above code, "apiData" is the variable which was assigned by calling "createAsyncThunk" and not the name inside "createAsyncThunk". We perform operation in each of the cases according to our requirement. Of course, during "pending", we change the value of "isLoading" to true. The first case to happen is "pending" case, after which "rejected" or "fulfilled" any case may occur based on the API response, so we must change the value of "isLoading" to false in both of the cases. We can assign "action.error" to our error value if it is rejected. And in fulfilled case, we assign the "action.payload" value to our state varaible.
 
 Now we need to import the exported function/variable which we assigned to "createAsyncThunk" method in the component/page, where we gonna display our API data in the UI.
 <br> The sample code looks like;
