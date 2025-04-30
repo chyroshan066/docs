@@ -1,4 +1,4 @@
-At first we need to convert "provider.tsx/provider.js" file into client-component using "use client" directive
+Since, Redux Provider depends on React "Context API" internally. So, at first we need to convert "provider.tsx/provider.js" file into client-component using "use client" directive
 
 ```
 "use client"
