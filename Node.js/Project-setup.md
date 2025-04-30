@@ -44,6 +44,16 @@ To build your project, add this to the "package.json" file;
 }
 ```
 
+For using typeScript, in your "tsconfig.json" file, specify the following
+
+```
+"compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    ...
+}
+```
+
 To start your built app, add this to the "package.json" file;
 
 ```
@@ -86,6 +96,18 @@ To run eslint in all of your typeScript files, run the following command;
 npm run lint
 ```
 
+The overall scripts in your "package.json" would look like;
+
+```
+"scripts": {
+  "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+  "build": "tsc",
+  "start": "node dist/index.js",
+  "check-type": "tsc --noEmit",
+  "lint": "eslint . --ext .ts"
+}
+```
+
 During development mode, run the app using the following command;
 
 ```
@@ -104,7 +126,7 @@ Start your production ready app using the following command;
 npm run start
 ```
 
-To enforce type-checking in CI/CD pipeline, create a folder named ".github" inside which create another folder named "workflows" inside of which you can create your ".yml".
+To enforce type-checking in CI/CD pipeline, create a folder named ".github" inside which create another folder named "workflows" inside of which you can create your ".yml" file.
 <br> Now add the following script in your ".yml" file;
 
 ```
@@ -136,6 +158,13 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Lint
+        run: npm run lint
 ```
 
 This ensures no code is deployed with type errors.
+
+The folder structure looks like;
+
+![project-setup](../images/project-setup.png)
