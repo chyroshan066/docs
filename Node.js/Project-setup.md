@@ -62,6 +62,12 @@ To start your built app, add this to the "package.json" file;
 }
 ```
 
+If you want to use ES module syntax in your node.js project, then add the following script in your "package.json" file
+
+```
+"type": "module"
+```
+
 To type check your typeScript file, add it to the scripts in your "package.json" file
 
 ```
@@ -99,12 +105,15 @@ npm run lint
 The overall scripts in your "package.json" would look like;
 
 ```
-"scripts": {
-  "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-  "build": "tsc",
-  "start": "node dist/index.js",
-  "check-type": "tsc --noEmit",
-  "lint": "eslint . --ext .ts"
+{
+    "type": "module",
+    "scripts": {
+        "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "check-type": "tsc --noEmit",
+        "lint": "eslint . --ext .ts"
+    }
 }
 ```
 
