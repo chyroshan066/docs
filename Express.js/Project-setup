@@ -10,10 +10,11 @@ Then run npm init to initialize your project
 npm init -y
 ```
 
-Then install neceessary pacakges for using typeScript using the following command;
+Then install neceessary pacakges for typeScript and express using the following command;
 
 ```
-npm install typescript ts-node-dev @types/node --save-dev
+npm install typescript ts-node-dev @types/node ts-node @types/express --save-dev
+npm i express
 ```
 
 Here, "ts-node-dev" runs typeScript files without compiling it into javaScript during development mode. And "@types/node" package provides type definitions for built-in Node.js modules (like "fs", "path", "http").
@@ -44,13 +45,19 @@ To build your project, add this to the "package.json" file;
 }
 ```
 
-For using typeScript, in your "tsconfig.json" file, specify the following
+For using typeScript with ES module, specify the following in your "tsconfig.json" file
 
 ```
 "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    ...
+    "target": "ES2024",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "moduleDetection": "force",
+    "strict": true,
+    "skipLibCheck": true,
 }
 ```
 
@@ -65,7 +72,7 @@ To start your built app, add this to the "package.json" file;
 If you want to use ES module syntax in your node.js project, then add the following script in your "package.json" file
 
 ```
-"type": "module"
+"type": "commonjs"
 ```
 
 To type check your typeScript file, add it to the scripts in your "package.json" file

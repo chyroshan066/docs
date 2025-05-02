@@ -8,7 +8,7 @@ import fs from "fs/promises";
 Promises "fs" module provides various methods to perform CRUD operations;
 
 1. **".writeFile()":**
-   <br>This method is used to write content in our file if it exits. And if the file doesn't exist it creates the new file and write. ".writeFile()" method takes three arguments: "path", "data" and "option".
+   <br>This method is used to write content in our file if it exits. And if the file doesn't exist, then it creates the new file and write. ".writeFile()" method takes three arguments: "path", "data" and "option".
 
    ```
    fs.writeFile(
