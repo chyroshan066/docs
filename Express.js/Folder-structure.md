@@ -3,6 +3,11 @@ The production grade express.js folder structure would look-like;
 ```
 project-root/
 │
+├── public/                # Public static assets (served by Express)
+│   ├── images/
+│   ├── css/
+│   └── js/
+|
 ├── src/                             # All source code lives here
 │   ├── config/                      # Configuration files (env, db, etc.)
 │   │   └── env.config.ts           # Loads and validates environment variables
