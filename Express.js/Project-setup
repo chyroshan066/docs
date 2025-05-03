@@ -31,7 +31,7 @@ Then configure your "package.json" file to run it in the development mode;
 
 ```
 "scripts": {
-  "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+  "dev": "node --loader ts-node/esm src/index.ts"
 }
 ```
 
@@ -48,16 +48,24 @@ To build your project, add this to the "package.json" file;
 For using typeScript with ES module, specify the following in your "tsconfig.json" file
 
 ```
-"compilerOptions": {
+"{
+  compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
     "target": "ES2024",
-    "module": "CommonJS",
-    "moduleResolution": "node",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "moduleDetection": "force",
     "strict": true,
     "skipLibCheck": true,
+  },
+  "ts-node": {
+    "esm": true
+  }
 }
 ```
 
@@ -72,7 +80,7 @@ To start your built app, add this to the "package.json" file;
 If you want to use ES module syntax in your node.js project, then add the following script in your "package.json" file
 
 ```
-"type": "commonjs"
+"type": "module"
 ```
 
 To type check your typeScript file, add it to the scripts in your "package.json" file
@@ -115,13 +123,19 @@ The overall scripts in your "package.json" would look like;
 {
     "type": "module",
     "scripts": {
-        "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+        "dev": "node --loader ts-node/esm src/index.ts",
         "build": "tsc",
         "start": "node dist/index.js",
         "type-check": "tsc --noEmit",
         "lint": "eslint . --ext .ts"
     }
 }
+```
+
+When importing TypeScript files with ESM, you must include extension too:
+
+```
+import { someFn } from "./some-file.ts";
 ```
 
 During development mode, run the app using the following command;
