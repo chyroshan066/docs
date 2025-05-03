@@ -1,4 +1,8 @@
 We place all our "routes" in separate file to keep our "index.ts" file neat and clean. For that we create separate "routes" folder inside our "src" directory adjacent to "index.ts" file. And inside that "routes" folder, we create "route.ts" file and handle our routes. That is possible only with the help of "Router" function from "express".
+<br> The folder structure is shown below;
+
+![express-router](../images/express-router.png)
+
 <br> We import "Router" in our "route.ts" file from "express" and instantiate an object as;
 
 ```
