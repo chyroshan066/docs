@@ -1,4 +1,4 @@
-For using dynamic routes in expres.js, we add colon (:), in front of the route-name. And dynamic URL can be accessed by "req.params./<dynamic-route-name/>"
+For using dynamic routes in expres.js, we add colon (:), in front of the route-name. And dynamic URL can be accessed by "req.params.\<dynamic-route-name\>"
 <br> This can be better explained with the code below;
 
 ```
