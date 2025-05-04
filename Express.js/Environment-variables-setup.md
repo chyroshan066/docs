@@ -8,7 +8,7 @@ Install "dotenv" package using the following comand;
 npm i dotenv
 ```
 
-Add the following scripts at the top of your "index.ts" file;
+Add the following scripts at the top of your "env.schema.ts" file;
 
 ```
 import dotenv from "dotenv"

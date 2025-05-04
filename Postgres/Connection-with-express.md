@@ -2,7 +2,7 @@ To connect postgres database with express, we first install "pg". Since, we are 
 
 ```
 npm i @types/pg --save-dev
-npm  i pg
+npm i pg
 ```
 
 After that, we import "Pool" class from "pg" in our "pool.ts" file inside our "db" folder which is adjacent to "index.ts" file.
