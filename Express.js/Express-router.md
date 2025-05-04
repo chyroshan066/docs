@@ -6,7 +6,7 @@ We place all our "routes" in separate file to keep our "index.ts" file neat and 
 <br> We import "Router" in our "route.ts" file from "express" and instantiate an object as;
 
 ```
-import { Router } from "express";
+import { Router, Request, Response } from "express";
 
 const router = Router();
 ```
@@ -25,10 +25,10 @@ After that we export our "router". It is better to export with other name rather
 export const learnRouter = router;
 ```
 
-Then we import the exported "router" in our "indext.ts" file;
+Then we import the exported "router" in our "app.ts" file inside our "server" folder adjacent to "index.ts" file;
 
 ```
-import { learnRouter } from "./routes/learn.route.ts";
+import { learnRouter } from "../routes/learn.route.ts";
 ```
 
 After that we use "app.use()" method and pass the "router" we imported.
@@ -37,7 +37,9 @@ After that we use "app.use()" method and pass the "router" we imported.
 app.use("/", learnRouter);
 ```
 
-We call the above "app.use()" method just above the code for not-found 404 error and "app.listen()" method.
+The folder structure looks-like;
+
+![express-router](../images/express-router.png)
 
 The whole sample code for "route.ts" looks like;
 
@@ -53,29 +55,13 @@ router.get("/users/:username", (req: Request, res: Response): void => {
 export const learnRouter = router;
 ```
 
-The sample code for "index.ts" looks like;
+The sample code for "app.ts" looks like;
 
 ```
-import dotenv from "dotenv";
-dotenv.config();
+import express from "express";
+import { learnRouter } from "../routes/learn.route.ts";
 
-import express, { Request, Response } from "express";
-import { PORT } from "./schemas/env.schema.ts";
-import path from "path";
-import { learnRouter } from "./routes/learn.route.ts";
-
-const app = express();
-
-const absoluteStaticPath = path.join(import.meta.dirname, "..", "public");
-
-app.use(express.static(absoluteStaticPath));
-app.use(express.urlencoded({ extended: true }));
+export const app = express();
 
 app.use("/", learnRouter);
-
-app.use((req: Request, res: Response) => {
-  res.status(404).send("Page not found");
-})
-
-app.listen(PORT, () => console.log(`Server listening at PORT: ${PORT}`))
 ```

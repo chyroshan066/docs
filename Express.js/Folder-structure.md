@@ -9,8 +9,14 @@ project-root/
 │   └── js/
 |
 ├── src/                             # All source code lives here
-│   ├── config/                      # Configuration files (env, db, etc.)
+|   ├── db/
+│   |   └── pool.ts                 # Databse connection lives here
+|   |
+│   ├── config/                     # Configuration files (env, db, etc.)
 │   │   └── env.config.ts           # Loads and validates environment variables
+│   │
+│   ├── server/
+│   │   └── app.ts                  # Express app initialization logic
 │   │
 │   ├── controllers/                # Request handlers (business logic)
 │   │   └── user.controller.ts      # Controller for user-related routes

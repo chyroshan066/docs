@@ -35,8 +35,6 @@ Then configure your "package.json" file to run it in the development mode;
 }
 ```
 
-Here, "--respawn" starts the process after each file changes and "--transpile-only" skips type checking for faster development.
-
 To build your project, add this to the "package.json" file;
 
 ```

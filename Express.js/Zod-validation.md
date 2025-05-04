@@ -4,6 +4,13 @@ First install "zod" using the following command;
 npm i zod
 ```
 
+Then add the following scripts at the top of your "schema.ts" file;
+
+```
+import dotenv from "dotenv"
+dotenv.config();
+```
+
 Then import "zod" in the module where you want to validate.
 <br> It can be imported as;
 
