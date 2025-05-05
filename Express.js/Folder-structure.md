@@ -7,10 +7,14 @@ project-root/
 │   ├── images/
 │   ├── css/
 │   └── js/
+│
+├── prisma/
+│   └── schema.prisma           # Contains Prisma Schema with your database connection variable and schema models.
 |
 ├── src/                             # All source code lives here
 |   ├── db/
 │   |   └── pool.ts                 # Databse connection lives here
+│   |   └── prisma.ts               # Prisma client instance
 │   |   └── init.ts                 # Databse initialization lives here
 |   |
 │   ├── config/                     # Configuration files (env, db, etc.)
@@ -26,7 +30,7 @@ project-root/
 │   │   └── user.controller.ts      # Controller for user-related routes, handles request and response
 │   │
 │   ├── models/                     # Database models/schema definitions
-│   │   └── user.model.ts           # DB schema for User (e.g., Prisma/Mongoose)
+│   │   └── user.model.ts           # DB schema for User (e.g., Mongoose)
 │   │
 │   ├── routes/                     # Express route definitions
 │   │   └── user.route.ts           # User routes

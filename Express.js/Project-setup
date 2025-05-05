@@ -13,7 +13,7 @@ npm init -y
 Then install neceessary pacakges for typeScript and express using the following command;
 
 ```
-npm install typescript ts-node-dev @types/node ts-node @types/express --save-dev
+npm install typescript @types/node ts-node @types/express --save-dev
 npm i express
 ```
 

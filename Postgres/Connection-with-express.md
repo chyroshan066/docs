@@ -20,7 +20,7 @@ export const pool = new Pool({
     user: "postgres",
     port: 5432,
     database: "expressdb",
-    max: 50,
+    max: 10,
     connectionTimeoutMillis: 10000,
     idleTimeoutMillis: 30000,
 })
