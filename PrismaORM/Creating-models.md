@@ -3,13 +3,19 @@ To create model in prisma, go to the "schema.prisma" file located inside the "pr
 
 ```
 model User {
-  id         Int      @id @default(autoincrement())
-  name       String?
-  email      String   @unique
-  password   String?
-  created_at DateTime @default(now())
+  id        Int      @id @default(autoincrement()) // @id means primary-key
+  name      String?
+  email     String   @unique
+  password  String?
+  title     String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("user")
 }
 ```
+
+We use "@map()" function to change the column name in PostgreSQL database.
+<br> Also we use "@@map()" function to change the table name in PostgreSQL Database.
 
 To generate "migrations" folder and create table in the database, invoke the following command;
 

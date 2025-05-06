@@ -14,7 +14,7 @@ export const insertData = async (name: string, id: number): Promise<QueryResult<
 
 The "pool.query()" method returns a "Promise" which resolves to "QueryResult\<T\>". We can pass any value directly in the query. But for passing variable instead of value we use parameter placeholders instead of template-literals to safely inject values without directly embedding them into the SQL string. In the above code, "$1" corresponds to the first variable (i.e; "name") and "$2" corresponds to the second variable (i.e; "id") and so on.
 
-Then we import the exported function in our "service.ts" file inside "services" folder adjacent to "index.ts" file. We handle fetching/retrieving related logic in the "service" folder. The "service.ts" file act as an intermediary between "repository.ts" file and "controller.ts". The function is then exported to "controller.ts" file.
+Then we import the exported function in our "service.ts" file inside "services" folder adjacent to "index.ts" file. We handle fetching/retrieving related business logic in the "service" folder. The "service.ts" file act as an intermediary between "repository.ts" file and "controller.ts". The function is then exported to "controller.ts" file.
 <br> The sample code is written below;
 
 ```
@@ -30,7 +30,7 @@ export const createUser = async (name: string, id: number) => {
 }
 ```
 
-After that, we import the exported function in "controller.ts" file inside our "controllers" folder adjacent to "index.ts" file. Then we perform user-related logic here and export that function to our "route.ts" file which calls the function when we visit that particular route.
+After that, we import the exported function in "controller.ts" file inside our "controllers" folder adjacent to "index.ts" file. Then we perform user-related HTTP/HTTPS logic here and export that function to our "route.ts" file which calls the function when we visit that particular route.
 <br> The sample code for "controller.ts" file is shown below;
 
 ```
