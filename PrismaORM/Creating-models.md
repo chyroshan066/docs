@@ -14,7 +14,7 @@ model User {
 To generate "migrations" folder and create table in the database, invoke the following command;
 
 ```
-npx prisma migrate dev --name <table_name>
+npx prisma migrate dev --name <migration_name>
 ```
 
 The "migrations" folder tracks the changes you made in the model.

@@ -13,7 +13,7 @@ npm init -y
 Then install neceessary pacakges for typeScript and express using the following command;
 
 ```
-npm install typescript @types/node ts-node @types/express --save-dev
+npm install typescript @types/node tsx @types/express --save-dev
 npm i express
 ```
 
@@ -31,9 +31,11 @@ Then configure your "package.json" file to run it in the development mode;
 
 ```
 "scripts": {
-  "dev": "node --loader ts-node/esm src/index.ts"
+  "dev": "tsx watch src/index.ts",
 }
 ```
+
+"watch" helps in hot-reloading.
 
 To build your project, add this to the "package.json" file;
 
@@ -64,7 +66,7 @@ For using typeScript with ES module, specify the following in your "tsconfig.jso
   "ts-node": {
     "esm": true
   }
-}
+}"
 ```
 
 To start your built app, add this to the "package.json" file;
@@ -121,7 +123,7 @@ The overall scripts in your "package.json" would look like;
 {
     "type": "module",
     "scripts": {
-        "dev": "node --loader ts-node/esm src/index.ts",
+        "dev": "tsx watch src/index.ts",
         "build": "tsc",
         "start": "node dist/index.js",
         "type-check": "tsc --noEmit",

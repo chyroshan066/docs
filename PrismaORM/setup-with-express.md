@@ -41,3 +41,13 @@ Here, "postgresql" refers to the database you are using.
 <br> "localhost" refers to host name
 <br> "5432" refers to the port name
 <br> And "prismaDB" refers to database name
+
+Go to the "schema.prisma" file inside "prisma" folder and configure "generator Client" to be;
+
+```
+generator client {
+  provider = "prisma-client-js"
+}
+```
+
+We just deleted "output" key value pair from the "client" generator.
