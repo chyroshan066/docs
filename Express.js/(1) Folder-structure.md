@@ -3,15 +3,18 @@ The production grade express.js folder structure would look-like;
 ```
 project-root/
 │
-├── public/                # Public static assets (served by Express)
+├── public/                         # Public static assets (served by Express)
 │   ├── images/
 │   ├── css/
 │   └── js/
+|
+├── views/                          # Serves templates
+│   └── layout.ejs
 │
 ├── prisma/
-│   └── schema.prisma           # Contains Prisma Schema with your database connection variable and schema models.
+│   └── schema.prisma               # Contains Prisma Schema with your database connection variable and schema models.
 |
-├── src/                             # All source code lives here
+├── src/                            # All source code lives here
 |   ├── db/
 │   |   └── pool.ts                 # Databse connection lives here
 │   |   └── prisma.ts               # Prisma client instance
@@ -57,7 +60,7 @@ project-root/
 │
 ├── .github/
 │   └── workflows/                  # GitHub Actions CI/CD workflow files
-│       └── nodejs.yml              # Example CI workflow for Node.js
+│       └── ci.yml              # Example CI workflow for Node.js
 │
 ├── .env                            # Environment variables (not committed)
 ├── .env.example                    # Sample env file for development/CI

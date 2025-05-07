@@ -32,7 +32,7 @@ In the above code, relation-mapper (i.e; @relation(...) ) has various keys;
 <br> The value assigned to the "references" key points the primary key in the related model. The foreign key points to the primary key
 <br> When we set "onDelete" key to "Cascade", then it deletes the related records automatically.
 
-If we want to get the info of related models also, then in the in the "include" key, we set that model value to "true"
+If we want to get the info of related models also, then in the "include" key, we set that model value to "true"
 
 ```
 export const fetchUser = async (id: number): Promise<User | null> => {
