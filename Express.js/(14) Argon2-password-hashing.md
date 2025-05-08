@@ -4,7 +4,7 @@ To hash password using "argon2" for enhanced security, we first need to install 
 npm i argon2
 ```
 
-Then we import "argon2" in the file/module where we want to encrypt or decrypt password asl
+Then we import "argon2" in the file/module where we want to encrypt or decrypt password as;
 
 ```
 import argon2 from "argon2";
