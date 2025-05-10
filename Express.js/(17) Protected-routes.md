@@ -10,10 +10,8 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
     if (token){
         jwt.verify(token, "cookie_secret", (err: Error | null, decodedToken: JwtPayload | string | undefined) => {
             if (err){
-                console.log(err?.message);
                 res.redirect("/login");
             } else{
-                console.log(decodedToken);
                 next();
             }
         });

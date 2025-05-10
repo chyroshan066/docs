@@ -20,6 +20,14 @@ project-root/
 │   |   └── prisma.ts               # Prisma client instance
 │   |   └── init.ts                 # Databse initialization lives here
 |   |
+|   ├── graphql/
+│   |    ├── resolvers/             # All resolver functions (queries/mutations)
+│   │    |  └── user.resolver.ts
+│   |    ├── typeDefs/              # GraphQL schema definitions
+│   │    |  └── user.typeDef.ts
+│   |    ├── context.ts             # Context setup for request (e.g. auth, db)
+│   |    └── index.ts               # Apollo Server instance setup
+|   |
 │   ├── config/                     # Configuration files (env, db, etc.)
 │   │   └── env.config.ts           # Loads and validates environment variables
 │   │
