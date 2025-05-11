@@ -22,26 +22,31 @@ src/
 │   ├── layout/           # Navbar, Sidebar, Footer
 │   └── common/           # Loader, ErrorBoundary, etc.
 │
-├── reduxToolkit/         # Redux store and slices (🏆 placed outside app/)
+├── reduxToolkit/         # Redux store and slices
 │   ├── store.ts          # Redux store setup
 │   ├── hooks.ts          # Typed useDispatch, useSelector
 │   └── slices/           # Group slices here
 │       ├── authSlice.ts
-│       ├── userSlice.ts
-│       ├── postSlice.ts
 │       └── modalSlice.ts
 │
 ├── graphql/              # GraphQL folder
 │   ├── apollo-client.ts  # Apollo Client setup
 │   ├── mutations/        # All GraphQL mutations (e.g., createPostMutation.ts)
 │   ├── queries/          # All GraphQL queries (e.g., getUserPosts.ts)
-│   ├── fragments/        # (optional) GraphQL reusable fragments
+│   └── fragments/        # (optional) GraphQL reusable fragments
 │
 ├── types/                # Global TypeScript types (for props, responses, etc.)
 │   ├── index.ts          # Export all types from here
 │   ├── authTypes.ts
 │   ├── postTypes.ts
 │   └── userTypes.ts
+│
+├── api/                  # Axios API layer (NEW)
+│   ├── axiosClient.ts    # Axios instance with interceptors
+│   ├── authAPI.ts        # Auth-related requests
+│   ├── postAPI.ts        # Post-related requests
+│   ├── userAPI.ts        # User profile requests
+│   └── index.ts          # Export all API modules
 │
 ├── constants/            # Constants (roles, URLs, API endpoints, etc.)
 │   ├── routes.ts
