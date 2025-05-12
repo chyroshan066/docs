@@ -1,4 +1,4 @@
-First sign in "https://clerk.com/" and choose the sign in options required in your app. After clicking "Create Application" install clerk in our app using the following command;
+First sign in "https://clerk.com/" and choose the sign in options required in your app. After clicking "Create Application" install clerk in your app using the following command;
 
 ```
 npm i @clerk/nextjs
@@ -29,6 +29,8 @@ export const config = {
 At last, wrap your app with "ClerkProvider" component in your root "layout.tsx/layout.jsx" file as;
 
 ```
+import { ClerkProvider } from "@clerk/nextjs";
+
 export default function RootLayout({
   children,
 }: Readonly<{
