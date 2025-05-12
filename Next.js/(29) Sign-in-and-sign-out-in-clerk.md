@@ -1,4 +1,4 @@
-For performing/creating any sign in and sign out options, first we need to import "SignInButton" and "SignOutButton" components from "@clerk/nextjs" asl
+For performing/creating any sign in and sign out options, first we need to import "\<SignInButton\>" and "\<SignOutButton\>" components from "@clerk/nextjs" asl
 
 ```
 import { SignInButton, SignOutButton } from "@clerk/nextjs";
@@ -29,4 +29,4 @@ export const Navbar = () => {
 };
 ```
 
-The (mode="modal") attribute in "SignInButton" provides modal for signing in.
+The (mode="modal") attribute in "\<SignInButton\>" provides modal for signing in.
