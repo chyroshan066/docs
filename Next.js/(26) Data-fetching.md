@@ -15,7 +15,7 @@ export const axiosClient = axios.create({
 });
 ```
 
-Now create another file within "api" folder and perform fetching operation there based on different methods (like; "get", "post", "put" etc.). Perform data fetching within the function and return that to increase reusability.
+Now create another file within "api" folder and perform fetching operation there based on different methods (like; "get", "post", "put" etc.). Perform data fetching inside the function and return that to increase reusability.
 <br> The sample code is written below;
 
 ```
@@ -26,6 +26,8 @@ export const getUsers = () => {
 }
 ```
 
+Since, we defined "baseURL" in our "axiosClient.ts/axiosClient.js" file, so we don't need to provide complete path but instead the relative path from that URL.
+
 Now within "api" folder, create "index.ts" file and barrel export all functions related to data fetching as;
 
 ```
@@ -34,6 +36,8 @@ export * from "./userAPI";
 
 Now, import the functions to fetch data and handle according to your requirement.
 
+Data fetching in client component must be handled using "useEffect" and "useState" hook since, the client-component function can't be "async".
+
 ```
 "use client";
 
@@ -41,7 +45,7 @@ import { getUsers } from "@/api";
 import { APIUers } from "@/types/user.type";
 import { useEffect, useState } from "react"
 
-export const Users = () => {
+export default function Users() {
     const [data, setData] = useState([]);
 
     const handleFetching = async () => {
@@ -71,5 +75,30 @@ export const Users = () => {
             </div>
         ))}
     </>
+};
+```
+
+Since, the function in server-component can be made "async" so, there is no need to use "useEffect" and "useState" hook for data fetching. It can be simply fetched as;
+
+```
+import { getUsers } from "@/api";
+import { APIUers } from "@/types/user.type";
+
+export default async function apiServer() {
+    try {
+        const { data } = await getUsers();
+
+        return <>
+            {data.map((user: APIUers) => (
+                <div key={user.id}>
+                    <h2>{user.name}</h2>
+                    <h2>{user.email}</h2>
+                    <h2>{user.phone}</h2><br />
+                </div>
+            ))}
+        </>
+    } catch (err) {
+        console.log(err);
+    }
 };
 ```

@@ -38,14 +38,12 @@ src/
 ├── types/                # Global TypeScript types (for props, responses, etc.)
 │   ├── index.ts          # Export all types from here
 │   ├── authTypes.ts
-│   ├── postTypes.ts
 │   └── userTypes.ts
 │
 ├── api/                  # Axios API layer (NEW)
 │   ├── axiosClient.ts    # Axios instance with interceptors
 │   ├── authAPI.ts        # Auth-related requests
 │   ├── postAPI.ts        # Post-related requests
-│   ├── userAPI.ts        # User profile requests
 │   └── index.ts          # Export all API modules
 │
 ├── constants/            # Constants (roles, URLs, API endpoints, etc.)
