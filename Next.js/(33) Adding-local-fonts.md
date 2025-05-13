@@ -36,7 +36,7 @@ export const publicSans = localFont({
         },
     ],
     display: 'swap',
-    variable: '--font-sans'
+    variable: '--font-public-sans'
 });
 ```
 
@@ -54,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${publicSans.className} antialiased`}>
+    <html lang="en" className={`${publicSans.variable}`}>
+      <body className="antialiased">
         {children}
       </body>
     </html>
