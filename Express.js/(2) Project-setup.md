@@ -13,7 +13,7 @@ npm init -y
 Then install neceessary pacakges for typeScript and express using the following command;
 
 ```
-npm install typescript @types/node tsx @types/express --save-dev
+npm install typescript @types/node tsx @types/express -D
 npm i express
 ```
 
@@ -100,7 +100,7 @@ npm run type-check
 For checking linting of even better quality, install the following packages;
 
 ```
-npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
+npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 ```
 
 Then add the following scrits in your "package.json" file;

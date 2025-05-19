@@ -5,7 +5,6 @@ Next.js doesn't allow to add images directly from the external sites. To add ima
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
