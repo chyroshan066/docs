@@ -60,8 +60,6 @@ For using typeScript with ES module, specify the following in your "tsconfig.jso
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "moduleDetection": "force",
-    "strict": true,
-    "skipLibCheck": true,
   },
   "ts-node": {
     "esm": true

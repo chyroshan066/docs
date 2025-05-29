@@ -22,12 +22,16 @@ src/
 │   ├── layout/           # Navbar, Sidebar, Footer
 │   └── common/           # Loader, ErrorBoundary, etc.
 │
-├── reduxToolkit/         # Redux store and slices
+├── redux/         # Redux store and slices
 │   ├── store.ts          # Redux store setup
+│   ├── provider.tsx      # Provider component (uses `store.ts`)
 │   ├── hooks.ts          # Typed useDispatch, useSelector
-│   └── slices/           # Group slices here
-│       ├── authSlice.ts
-│       └── modalSlice.ts
+│   ├── slices/           # Group slices here
+│   │    ├── authSlice.ts
+│   │    └── ...
+│   └── services/         # RTK Query API services (API states)
+│       ├── authService.ts
+│       └── ...
 │
 ├── graphql/              # GraphQL folder
 │   ├── apollo-client.ts  # Apollo Client setup
@@ -38,13 +42,13 @@ src/
 ├── types/                # Global TypeScript types (for props, responses, etc.)
 │   ├── index.ts          # Export all types from here
 │   ├── authTypes.ts
-│   └── userTypes.ts
+│   └── ...
 │
 ├── api/                  # Axios API layer (NEW)
 │   ├── axiosClient.ts    # Axios instance with interceptors
-│   ├── authAPI.ts        # Auth-related requests
+│   ├── index.ts          # Export all API modules
 │   ├── postAPI.ts        # Post-related requests
-│   └── index.ts          # Export all API modules
+│   └── ...         
 │
 ├── constants/            # Constants (roles, URLs, API endpoints, etc.)
 │   ├── routes.ts
@@ -53,12 +57,11 @@ src/
 │
 ├── utils/                # Helper functions
 │   ├── formatDate.ts
-│   ├── uploadImage.ts
 │   └── classNames.ts     # for combining CSS classes
 │
 ├── lib/                  # External libraries, api clients (optional)
 │   ├── auth.ts           # Authentication helpers
-│   └── storage.ts        # For file uploads if needed
+│   └── ...
 │
 ├── middlewares/          # (optional) Middleware for client-side validation
 │   └── authMiddleware.ts
