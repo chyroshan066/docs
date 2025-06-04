@@ -4,6 +4,23 @@ Since, Redux Provider depends on React "Context API" internally. So, at first we
 "use client"
 ```
 
+We need to call "setupListeners" for automatic refetching. For that we first need to import "setupListeners" from "@reduxjs/toolkit/query". We also need to import "makeStore" function from "store.ts" file and create the reference of "makeStore".
+<br> The sample code is written below;
+
+```
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { AppStore, makeStore } from "./store";
+import { useRef } from "react";
+
+export const Providers = () => {
+    const storeRef = useRef<AppStore | null>(null);
+    if (!storeRef.current) {
+        storeRef.current = makeStore();
+        setupListeners(storeRef.current.dispatch);
+    }
+}
+```
+
 Inside "provider.tsx/provider.js" file, we import "Provider" from "react-redux" using the following command;
 
 ```
@@ -14,10 +31,8 @@ Then we export our "Providers" component which takes "children" props and wraps 
 <br> The following code simplifies it.
 
 ```
-import { store } from "./store";
-
 export const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <Provider store={store}> {children} </Provider>;
+  return <Provider store={storeRef.current}> {children} </Provider>;
 };
 ```
 
@@ -27,9 +42,20 @@ The minimal setup for "store.ts/store.js" file is written below.
 "use client";
 
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { AppStore, makeStore } from "./store";
+import { useRef } from "react";
+import { setupListeners } from "@reduxjs/toolkit/query";
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <Provider store={store}> {children} </Provider>;
-};
+export const Providers = ({
+    children
+}: {
+    children: React.ReactNode
+}) => {
+    const storeRef = useRef<AppStore | null>(null);
+    if (!storeRef.current) {
+        storeRef.current = makeStore();
+        setupListeners(storeRef.current.dispatch);
+    }
+    return <Provider store={storeRef.current}>{children}</Provider>;
+}
 ```

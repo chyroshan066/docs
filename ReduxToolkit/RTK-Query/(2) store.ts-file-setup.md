@@ -1,4 +1,4 @@
-In our "store.ts" file, we import the exported Api Slice and assign a key-value pair in the "reducer" object as;
+In our "store.ts" file, we import the exported Api Service and assign a key-value pair in the "reducer" object as;
 
 ```
 import { jsonPlaceholderApi } from "./services/json.slice";

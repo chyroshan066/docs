@@ -1,61 +1,69 @@
-Inside "store.ts/store.js", we import "configureStore" from "@reduxjs/toolkit" using the following command;
+Inside "store.ts/store.js", we import "configureStore" and "combineReducers" from "@reduxjs/toolkit" using the following command;
 
 ```
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 ```
 
-Then we export a variable (Eg: store) which uses the imported "configureStore" that takes object as argument. Inside that object, we define "reducer". If the "reducer" is exported with the same name as "reducer" from "slice.ts/slice.js", then we can write reducer as a single variable (No need to define key-value pair). Just like
+Then we write all our reducers inside "combineReducers" helper function and assign it to a variable as;
 
 ```
-export const store = configureStore({
-  reducer
+const rootReducer = combineReducers({
+  global: globalReducer,                      // for slices
+  [api.reducerPath]: api.reducer,             // for services
 });
 ```
 
-But if the "reducer" is exported with the different name from "slice.ts/slice.js", then we must define reducer as an object with key-value pair. Just like
+After that we assign that variable to the "reducer" key inside "configureStore()". The "configureStore()" is then returned by wrapping it in a function which is then exported.
+<br> The sample code is written below;
 
 ```
-export const store = configureStore({
-  reducer: {
-    employee: employeeReducer,
-  }
-});
-```
-
-For handling multiple slices, we just add key-value pair inside the "reducer" object separated by comma as;
-
-```
-export const store = configureStore({
-  reducer: {
-    employee: employeeReducer,
-    student: studentReducer,
-  },
-});
+export const makeStore = () => {
+  return configureStore({
+    reducer: rootReducer,
+  });
+};
 ```
 
 The folder structure of which is shown below.
 
 ![store](../images/store.png)
 
-If we are using typeScript, we also need to export the type of the reducer and dispatch in the following manner;
+If we are using typeScript, we also need to export the type of the store, reducer and dispatch in the following manner;
 
 ```
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+```
+
+Since, we were exporting the type of "useDispatch()" and "useSelector" hook, we also need to import those hooks along with "TypedUseSelectorHook" to wrap "RootState" once globally;
+
+```
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 ```
 
 The minimal setup for "store.ts/store.js" file is written below.
 
 ```
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
-export const store = configureStore({
-  reducer: {
-    employee: employeeReducer,
-    student: studentReducer,
-  },
+const rootReducer = combineReducers({
+  global: globalReducer,                     
+  [api.reducerPath]: api.reducer,             
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export const makeStore = () => {
+  return configureStore({
+    reducer: rootReducer,
+  });
+};
+
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ```
