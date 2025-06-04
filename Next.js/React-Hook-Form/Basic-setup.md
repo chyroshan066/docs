@@ -19,7 +19,7 @@ type Inputs = {
 };
 
 export const ReactHookForm = () => {
-    const [data, setData] = useState<formDataType>();
+    const [data, setData] = useState<Inputs>();
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm<Inputs>({
         defaultValues: {
@@ -31,8 +31,6 @@ export const ReactHookForm = () => {
         reset();
         setData(data)
     };
-
-    console.log(watch("message"));
 
     return <>
         <section className='flex gap-6'>
@@ -72,7 +70,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 If we are using typeScript, then we define types for all the input fields. 
  
-We then call "useForm()" hook to dereference and obtain various values which includes "register", "reset", "handleSubmit", "watch", "formState" etc. We can even pass objects to the hook if we want. For setting default values in various input fields, we assign an object having various input fields name and values in key-value pair as a value to "defaultValues" key as;
+We then call "useForm()" hook to dereference and obtain various values which includes "register", "reset", "handleSubmit", "watch", "formState" etc. We can even pass objects to the hook if we want. For setting default values in various input fields, we assign an object having various input fields name and values in key-value pair as a value to "defaultValues" key.
+<br> The sample code of which is written below;
 
 ```
 const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>({
