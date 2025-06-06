@@ -57,13 +57,13 @@ For using typeScript with ES module, specify the following in your "tsconfig.jso
     "allowImportingTsExtensions": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "moduleDetection": "force",
+    "resolveJsonModule": true,  
   },
   "ts-node": {
     "esm": true
-  }
+  },
+  "include": ["src/**/*", "src/data/**/*.json", "prisma/**/*"]
 }"
 ```
 
