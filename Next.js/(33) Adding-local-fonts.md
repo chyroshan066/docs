@@ -63,4 +63,14 @@ export default function RootLayout({
 }
 ```
 
-Next.js automatically generates "className" for that specific font. We can apply that "className" to any element.
+Now, you just need to create custom CSS font classes if you are using tailwind using the variable created in "layout.tsx" file.
+<br> The sample code is written below;
+
+```
+@theme {
+  --font-forum: var(--font-forum);
+  --font-dm_sans: var(--font-dm_sans), sans-serif;
+}
+```
+
+Next.js automatically generates "className" for that specific font. We can apply that "className" to any element. 
