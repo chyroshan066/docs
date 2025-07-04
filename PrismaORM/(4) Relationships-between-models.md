@@ -10,6 +10,7 @@ model User {
   title     String?
   createdAt DateTime  @default(now()) @map("created_at")
   post      Post[]
+  favouritedBy Post[] @relation("PostFavourites")
 
   @@map("user")
 }
@@ -22,6 +23,7 @@ model Post {
   userId       Int       @map("user_id")
   commentCount Int       @default(0) @map("comment_count")
   createdAt    DateTime  @default(now()) @map("created_at")
+  favourites User[] @relation("PostFavourites")
 
   @@map("post")
 }
@@ -31,6 +33,7 @@ In the above code, relation-mapper (i.e; @relation(...) ) has various keys;
 <br> The value assigned to the "fields" key acts as foreign key in the model.
 <br> The value assigned to the "references" key points the primary key in the related model. The foreign key points to the primary key
 <br> When we set "onDelete" key to "Cascade", then it deletes the related records automatically.
+<br> If we have multiple relations with the same models, then we create an explicit named relation without specifying fields. But we must ensure that both sides must use the same relation name, here in this case "PostFavourites"
 
 If we want to get the info of related models also, then in the "include" key, we set that model value to "true"
 

@@ -51,3 +51,14 @@ generator client {
 ```
 
 We just deleted "output" key value pair from the "client" generator.
+
+Lastly, in your "package.json" file add the following scripts;
+
+```
+"scripts": {
+  "prisma:generate": "prisma generate",
+  "postprisma:generate": "shx cp -r node_modules/.prisma/client/index.d.ts ../client/src/types/prismaTypes.d.ts",
+}
+```
+
+The "postprisma:generate" generate the prisma types in the frontend.

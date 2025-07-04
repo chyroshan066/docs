@@ -4,6 +4,13 @@ If we want to log requests for debugging, analytics, and security auditing in Ex
 npm i morgan
 ```
 
+If you are using typeScript, then you also need to install "@types/morgan" as a dev dependency. 
+<br> You can install it using the following command;
+
+```
+npm i @types/morgan -D
+```
+
 Then inside our "middleware" folder, we create new file called "logger.middleware.ts", import "morgan", setup and export this middleware.
 <br> The sample code is written below;
 

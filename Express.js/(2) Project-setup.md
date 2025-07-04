@@ -13,16 +13,45 @@ npm init -y
 Then install neceessary pacakges for typeScript and express using the following command;
 
 ```
-npm install typescript @types/node tsx @types/express -D
+npm install typescript @types/node tsx @types/express rimraf -D
 npm i express
 ```
 
-Here, "ts-node-dev" runs typeScript files without compiling it into javaScript during development mode. And "@types/node" package provides type definitions for built-in Node.js modules (like "fs", "path", "http").
+Here, "@types/node" package provides type definitions for built-in Node.js modules (like "fs", "path", "http"). "rimraf" is used for creating build folder.
 
 Then initialize your typeScript compiler using the following command;
 
 ```
 npx tsc --init
+```
+
+For using typeScript with ES module, specify the following in your "tsconfig.json" file
+
+```
+"{
+  compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "target": "ES2024",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
+    "resolveJsonModule": true, 
+    "paths": {
+      "@/*": ["./src/*"]
+    }, 
+    "declaration": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true, 
+    "strict": true,
+    "skipLibCheck": true,
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["src/**/*", "src/data/**/*.json", "prisma/**/*"]
+}"
 ```
 
 Now create a "src" folder inside the root directory and inside the "src" folder, create "index.ts" file.
@@ -35,50 +64,30 @@ Then configure your "package.json" file to run it in the development mode;
 }
 ```
 
-"watch" helps in hot-reloading.
-
 To build your project, add this to the "package.json" file;
 
 ```
 "scripts": {
-  "build": "tsc"
+  "build": "rimraf dist && npx tsc",
 }
-```
-
-For using typeScript with ES module, specify the following in your "tsconfig.json" file
-
-```
-"{
-  compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "target": "ES2024",
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "moduleDetection": "force",
-    "resolveJsonModule": true,  
-  },
-  "ts-node": {
-    "esm": true
-  },
-  "include": ["src/**/*", "src/data/**/*.json", "prisma/**/*"]
-}"
 ```
 
 To start your built app, add this to the "package.json" file;
 
 ```
 "scripts": {
-  "start": "node dist/index.js"
+  "start": "npm run build && node dist/index.js"
 }
 ```
 
 If you want to use ES module syntax in your node.js project, then add the following script in your "package.json" file
 
 ```
-"type": "module"
+"type": "module",
+"main": "./dist/index.js",
+  "imports": {
+    "#*": "./dist/*.js"
+},
 ```
 
 To type check your typeScript file, add it to the scripts in your "package.json" file
@@ -120,10 +129,14 @@ The overall scripts in your "package.json" would look like;
 ```
 {
     "type": "module",
+    "main": "./dist/index.js",
+    "imports": {
+      "#*": "./dist/*.js"
+    },
     "scripts": {
         "dev": "tsx watch src/index.ts",
-        "build": "tsc",
-        "start": "node dist/index.js",
+        "build": "rimraf dist && npx tsc",
+        "start": "npm run build && node dist/index.js",
         "type-check": "tsc --noEmit",
         "lint": "eslint . --ext .ts"
     }
