@@ -7,7 +7,7 @@ npm i @vercel/analytics
 After that in your root "layout.tsx" file, import "Analytics" from "@vercel/analytics/react" and add the imported component inside "body" tag just below the "children" props as;
 
 ```
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({
   children,
@@ -43,7 +43,7 @@ Similarly if you want to remove secret from the URL in analytics then
 <Analytics beforeSend={e => {
     // if URL includes secret then delete the secret in analytics
     const url = new URL(e.url);
-    url.searchParams.delete("secret);
+    url.searchParams.delete("secret");
     return {
         ...e,
         url: url.toString(),
