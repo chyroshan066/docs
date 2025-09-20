@@ -6,7 +6,7 @@ Then create a new file named "sitemap.ts" inside "app" directory and import the 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 ```
 
-Then create a new function named "sitemap" and export it as a default function with return type "MetadataRoute.Sitemap". But before setting the return type of the sitemap function you first need to import "MetadataRoute" from "next". Then export all the array of objects having "url", "lastModified", "changeFrequency" and "priority" in each of the object.
+Then create a new function named "sitemap" and export it as a default function with return type "MetadataRoute.Sitemap". But before setting the return type of the sitemap function you first need to import "MetadataRoute" from "next". Then export all the array of objects having "url", "lastModified", "changeFrequency" and "priority" keys in each of the object.
 <br> The sample code is written below;
 
 ```

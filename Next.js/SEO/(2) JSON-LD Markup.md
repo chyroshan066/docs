@@ -60,6 +60,10 @@ export const restaurantStructuredData = {
 };
 ```
 
+The "@context" field tells search engines what vocabulary/language you're using to describe your data. "https://schema.org" is the universal standard that all search engines recognize for structured data markup.
+<br> We always need to use "PostalAddress" for business locations.
+<br> According to Schema.org priceRange guidelines: $ = Inexpensive (under $25 USD equivalent), $$ = Moderate ($25-50 USD equivalent), $$$ = Expensive ($50-100 USD equivalent) and $$$$ = Very Expensive (over $100 USD equivalent)
+
 Then import the structured data in your root "layout.tsx" file and add it as a script inside \<head\> tag with type "application/ld+json".
 <br> The sample code is written below;
 
@@ -81,10 +85,6 @@ export default function RootLayout({
             __html: JSON.stringify(restaurantStructuredData),
           }}
         />
-        <meta name="geo.region" content="US-NY" /> 
-        <meta name="geo.placename" content="Dharan" /> 
-        <meta name="geo.position" content="40.7128;-74.0060" /> 
-        <meta name="ICBM" content="40.7128, -74.0060" />
         <meta name="google-site-verification" content="your-verification-code" />
         <meta name="facebook-domain-verification" content="your-verification-code" />
       </head>
@@ -96,3 +96,5 @@ export default function RootLayout({
   );
 }
 ```
+
+The "dangerouslySetInnerHTML" is a React-specific way to inject raw HTML content into a component.
