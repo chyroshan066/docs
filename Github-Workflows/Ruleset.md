@@ -10,3 +10,5 @@ We create a ruleset to restrict anyone from directly interfering with main branc
 8. Change **Enforcement Status** to **Active**.
 9. Checkmark the rules you want to set.
 10. After selecting the rulesets, hit the **Create** button.
+11. Then add the target branches to which the ruleset will be applied.
+12. Finally click the **Save Changes** button.

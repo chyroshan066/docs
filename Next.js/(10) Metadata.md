@@ -9,7 +9,7 @@ export const metadata = {
 
 If you want specific metadata for particular route, then you can go to the "page.tsx/page.jsx" file inside the route and customize the metadata object just like the above.
 
-If you want a dynamic metadata, then you have to use write "generateMetadata" function and return the object as metadata. This function returns "Promise<Metadata>" as an object.
+If you want a dynamic metadata, then you have to use "generateMetadata" function and return the object as metadata. This function returns "Promise<Metadata>" as an object.
 <br> **Note:** The function name should be exactly "generateMetadata". You can't have "metadata" object and "generateMetadata" function inside the same file.
 <br> The sample code is written below
 
@@ -45,10 +45,18 @@ type Props = {
 }
 ```
 
-Remember you can't use "metadata" object or "generateMetadata" function in client-side routes directly.
+Remember you can't share data between the page and generateMetadata function. So, its better to cache the data using "cache" function and use those in both the page and generateMetadata function. But before that you need to import "cache" from react.
+```
+import { cache } from "react";
+
+const getdata = cache(fetchData);
+```
+
+Where "fetchData" is function for fetching data from the API.
+
+Also you can't use "metadata" object or "generateMetadata" function in client-side routes directly.
 <br> If you want to use it in client-side route, then create a separate component file inside that route folder and write the code which includes "react-hooks" and "use client" directive, then. Then import the component in your "page.tsx/page.jsx" file to be rendered.
 <br> The sample code for the component looks-like.
-
 ```
 "use client";
 
