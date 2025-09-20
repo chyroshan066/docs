@@ -98,3 +98,4 @@ export default function RootLayout({
 ```
 
 The "dangerouslySetInnerHTML" is a React-specific way to inject raw HTML content into a component.
+<br> There isn't any need to add meta tag for "google-site-verification" if you added DNS TXT record in the domain itself. But when using vercel sub-domains, we don't have control over adding DNS TXT record, so our only option would be to add meta tag for "google-site-verification".
