@@ -8,7 +8,7 @@ export const restaurantStructuredData = {
   "@type": "Restaurant",
   "name": "Gurung BBQ", 
   "description": "Experience authentic Nepali BBQ at Gurung BBQ. Savor traditional grilled meats, momos, and Himalayan flavors in a warm, welcoming atmosphere. Fresh ingredients, bold spices, and time-honored recipes.", 
-  "url": process.env.NEXT_PUBLIC_BASE_URL,
+  "url": "https://www.<your_domain>",
   
   "address": {
     "@type": "PostalAddress",
@@ -50,7 +50,7 @@ export const restaurantStructuredData = {
     "@type": "ReserveAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL}#contact`
+      "urlTemplate": "https://www.<your_domain>/#contact"
     },
     "result": {
       "@type": "Reservation",

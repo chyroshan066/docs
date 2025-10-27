@@ -3,7 +3,7 @@ First of all, create a variable named "NEXT_PUBLIC_BASE_URL" in your .env file a
 Then create a new file named "sitemap.ts" inside "app" directory and import the baseURL for use.
 
 ```
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://www.<your_domain>";
 ```
 
 Then create a new function named "sitemap" and export it as a default function with return type "MetadataRoute.Sitemap". But before setting the return type of the sitemap function you first need to import "MetadataRoute" from "next". Then export all the array of objects having "url", "lastModified", "changeFrequency" and "priority" keys in each of the object.
