@@ -1,0 +1,15 @@
+Create a "robots.txt" file inside the "public" folder and add the following text:
+
+```
+User-agent: *
+Allow: /
+Sitemap: https://sewarotattoo.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+```
+
+It provides the sitemap URL and allow google and mircosoft bing to do indexing.
