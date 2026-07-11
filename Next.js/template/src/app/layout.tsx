@@ -1,22 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import localFont from "next/font/local";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
-
-const font_name = localFont({
-  src: [
-    {
-      path: "../../public/fonts/<font_path>",
-      weight: "<font_weight>",
-      // weight: "200",
-      style: "<font_style>"
-      // style: "normal"
-    },
-    // .... and so on
-  ],
-  display: 'swap',
-  variable: '--<font_name>'
-});
+import { font_name } from "./fonts";
 
 export const metadata: Metadata = {
   title: "<website_title>",

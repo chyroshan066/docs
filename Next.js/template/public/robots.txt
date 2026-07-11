@@ -1,9 +1,14 @@
 User-agent: *
 Allow: /
-Sitemap: https://sewarotattoo.com/sitemap.xml
 
-User-agent: Googlebot
-Allow: /
+# Block Next.js static assets from indexing
+Disallow: /_next/static/
+Disallow: /_next/image/
 
-User-agent: Bingbot
-Allow: /
+# Block font files
+Disallow: /*.woff2$
+Disallow: /*.woff$
+Disallow: /*.ttf$
+Disallow: /*.eot$
+
+Sitemap: https://<your_domain>/sitemap.xml
